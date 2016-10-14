@@ -46,13 +46,13 @@ def encode(data):
     encoding for the plantuml server
     """
     res = ""
-    for i in xrange(0,len(data), 3):
+    for i in range(0,len(data), 3):
         if (i+2==len(data)):
-            res += _encode3bytes(ord(data[i]), ord(data[i+1]), 0)
+            res += _encode3bytes(data[i], data[i+1], 0)
         elif (i+1==len(data)):
-            res += _encode3bytes(ord(data[i]), 0, 0)
+            res += _encode3bytes(data[i], 0, 0)
         else:
-            res += _encode3bytes(ord(data[i]), ord(data[i+1]), ord(data[i+2]))
+            res += _encode3bytes(data[i], data[i+1], data[i+2])
     return res
 
 def _encode3bytes(b1, b2, b3):
