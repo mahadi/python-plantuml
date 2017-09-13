@@ -196,7 +196,7 @@ class PlantUML(object):
             outfile = os.path.splitext(filename)[0] + '.png'
         if errorfile is None:
             errorfile = os.path.splitext(filename)[0] + '_error.html'
-        data = open(filename, 'U').read()
+        data = open(filename, 'Ub').read()
         try:
             content = self.processes(data)
         except PlantUMLHTTPError as e:
