@@ -147,7 +147,7 @@ class PlantUML(object):
                 response, content = http.request(
                     login_url, method, headers=headers,
                     body=urllib.urlencode(body))
-            except self.HttpLib2Error(e):
+            except self.HttpLib2Error as e:
                 raise PlantUMLConnectionError(e)
             if response.status != 200:
                 raise PlantUMLHTTPError(response, content)
@@ -171,7 +171,7 @@ class PlantUML(object):
         url = self.get_url(plantuml_text)
         try:
             response, content = self.http.request(url, **self.request_opts)
-        except self.HttpLib2Error(e):
+        except self.HttpLib2Error as e:
             raise PlantUMLConnectionError(e)
         if response.status != 200:
             raise PlantUMLHTTPError(response, content)
@@ -199,7 +199,7 @@ class PlantUML(object):
         data = open(filename, 'U').read()
         try:
             content = self.processes(data)
-        except PlantUMLHTTPError(e):
+        except PlantUMLHTTPError as e:
             err = open(errorfile, 'w')
             err.write(e.content)
             err.close()
