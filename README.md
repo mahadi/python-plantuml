@@ -18,7 +18,7 @@ but can be used against any server.
 
 ###Install
 
-    pip install git+https://github.com/SamuelMarks/python-plantuml#egg=plantuml
+    pip install git+https://github.com/mahadi/python-plantuml#egg=plantuml
 
 PS: At some point this newer version will be uploaded to PyPi, at which point you can do:
 
